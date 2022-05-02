@@ -1,7 +1,6 @@
 let uid = 0
 export default class Dep{
   constructor() {
-    // console.info('Dep') // 给每层对象添加dep
     this.id = uid++
 
     // 用数组存储自己的订阅者，subs是英语subscribes订阅者的意思
@@ -10,6 +9,9 @@ export default class Dep{
   }
   // 发布订阅
   addSub(sub) {
+    // 添加去重判断
+    if(this.subs.includes(sub)) return
+    // 收集 watcher 实例
     this.subs.push(sub)
   }
   // 添加依赖
@@ -29,3 +31,4 @@ export default class Dep{
     }
   }
 }
+Dep.target = null

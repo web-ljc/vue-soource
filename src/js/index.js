@@ -20,7 +20,7 @@ console.error(22222222222222)
 obj.a.m.n = 88
 console.error(obj, 6666666)
 obj.a.m.n = 89
-// obj.a.m.n = 99
+obj.a.m.n = 99
 // console.error(obj, 44444444444444)
 
 
