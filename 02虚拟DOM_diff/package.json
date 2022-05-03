@@ -1,0 +1,19 @@
+{
+  "name": "dom-diff",
+  "version": "1.0.0",
+  "description": "## sanbbdom的h函数如何工作",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "snabbdom": "^3.5.0"
+  },
+  "devDependencies": {
+    "webpack": "5",
+    "webpack-cli": "3",
+    "webpack-dev-server": "3"
+  }
+}
