@@ -1,16 +1,13 @@
+/* 
+  diff算法处理不同新旧节点
+*/
 import h from './mysnabbdom/h'
 import patch from './mysnabbdom/patch'
 
-const myVnode1 = h('h1', {key: 1}, '老的DOM，纯文字')
-
-// 新虚拟DOM如果是text值，直接替换老虚拟DOM内容
-// const myVnode2 = h('h1', {key: 1}, '新的DOM，纯文字')
-
-// 新虚拟ODM是Children，判断老虚拟DOM的内容
-const myVnode2 = h('ul', {key: 1}, [
-  h('li', {}, '新的虚拟DOM')
+const myVnode1 = h('h1', {key: 1}, '盒子')
+const myVnode2 = h('p', {key: 1}, [
+  h('span', {}, 'p-span')
 ])
-
 const myVnode3 = h('ul', {}, [
   h('li', {}, '苹果'),
   h('li', {}, '香蕉'),
