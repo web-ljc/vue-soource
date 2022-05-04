@@ -1,18 +1,36 @@
-import h from './02mysnabbdom/h'
+import {
+  init,
+  classModule,
+  propsModule,
+  styleModule,
+  eventListenersModule,
+  h,
+} from "snabbdom";
 
-const myVnode1 = h('div', {}, '盒子')
-const myVnode2 = h('div', {}, [
-  h('p', {}, 'one'),
-  h('p', {}, h('p', {}, 'two')),
+// 创建patch函数
+const patch = init([classModule, propsModule, styleModule, eventListenersModule])
+
+const vnode1 = h('div', {}, [
+  h('p', {key: 'A', data:1}, 'A'),
+  h('p', {key: 'B'}, 'B'),
+  h('p', {key: 'C'}, 'C'),
+  h('p', {key: 'D'}, 'D')
 ])
-const myVnode3 = h('ul', {}, [
-  h('li', {}, '苹果'),
-  h('li', {}, '香蕉'),
-  h('li', {}, [
-    h('div', {}, '橘子一号'),
-    h('div', {}, '橘子2号')
-  ])
-])
-console.info(myVnode1)
-console.info(myVnode2)
-console.info(myVnode3)
+const vnode2 = h('div', {}, [
+    h('p', {key: 'B'}, 'B'),
+    h('p', {key: 'A', data:2}, 'A'),
+    h('p', {key: 'C'}, 'C'),
+    h('p', {key: 'D'}, 'D'),
+    h('p', {key: 'E'}, 'E'),
+  ]
+)
+
+// 虚拟节点上树
+const container = document.querySelector('#container')
+patch(container, vnode1)
+
+const btn = document.querySelector('button')
+btn.addEventListener('click', () => {
+  patch(vnode1, vnode2)
+})
+
