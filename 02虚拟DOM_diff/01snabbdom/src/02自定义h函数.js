@@ -1,4 +1,4 @@
-import h from './02mysnabbdom/h'
+import h from './mysnabbdom/h'
 
 const myVnode1 = h('div', {}, '盒子')
 const myVnode2 = h('div', {}, [
