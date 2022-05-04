@@ -1,5 +1,7 @@
 import createElement from "./createElement";
+import updateChildren from "./updateChildren";
 
+// 对比同一个虚拟节点
 export default function patchVnode(oldVnode, newVnode) {
   // 1是否同一个对象
   if(oldVnode === newVnode) return
@@ -7,16 +9,16 @@ export default function patchVnode(oldVnode, newVnode) {
   if(newVnode.text !== undefined && (newVnode.children === undefined || newVnode.children.length === 0)) {
     // 新vnode有text属性
     if(oldVnode.text !== newVnode.text) {
-      // 旧虚拟节点中的textt和新虚拟节点中的text不同，直接替换
+      // 旧虚拟节点中的text和新虚拟节点中的text不同，直接替换
       oldVnode.elm.innerText = newVnode.text
     }
   } else {
     // 新vnode没有text属性
-    console.info('新vnode没有text属性')
+    // console.info('新vnode没有text属性')
     if(oldVnode.children !== undefined && oldVnode.children.length > 0) {
       // 新老都有children
       // 所有未处理的节点开头
-      
+      updateChildren(oldVnode.elm, oldVnode.children, newVnode.children)
     } else {
       // 老的没有children，新的有children
       // 清空老节点的内容
