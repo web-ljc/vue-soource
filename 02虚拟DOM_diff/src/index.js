@@ -18,6 +18,8 @@ console.info(myVnode2)
 
 // 新虚拟DOM3有Children
 const myVnode3 = h('ul', {key: 1}, [
+  h('li', {key: 'E'}, '菠萝2'),
+  h('li', {key: 'F'}, '菠萝4'),
   h('li', {key: 'A'}, [
     h('p', {}, '1'),
     h('p', {}, '2'),

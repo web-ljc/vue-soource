@@ -1,0 +1,16 @@
+{
+  "name": "instruct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "5",
+    "webpack-cli": "3",
+    "webpack-dev-server": "3"
+  }
+}

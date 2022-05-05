@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    123123 {{age}}
+    <input type="text" v-model="age" name="" id="">
+    <h1 class="div" v-if="show">你好{{age}}</h1>
+    <h1>你好2</h1>
+    <h1>你好3</h1>
+  </div>
+  <button onclick="add()">加1</button>
+  <script src="/dist/bundle.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        age: 10,
+        a: {
+          b: 20
+        }
+      },
+      watch: {
+        age() {
+          console.info('age改变了')
+        }
+      }
+    })
+    console.info(vm, 'vm')
+
+    function add() {
+      console.info(23, vm)
+      vm.age++
+    }
+  </script>
+</body>
+</html>
