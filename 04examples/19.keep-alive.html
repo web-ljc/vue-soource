@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="component='a1'">切换组件a</button>
+    <button @click="component='b1'">切换组件b</button>
+    <keep-alive include="a1">
+      <component :is="component"></component>
+    </keep-alive>
+  </div>
+  <script src="../vue-source/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        component: 'a1',
+      },
+      components: { // 默认在切换的时候，缓存组件，不全部重新创造
+        a1: {
+          template: `<div>1111</div>`
+        },
+        b1: {
+          template: `<div>bbbb</div>`
+        }
+      }
+    })
+  </script>
+</body>
+</html>
